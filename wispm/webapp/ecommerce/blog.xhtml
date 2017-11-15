@@ -1,0 +1,522 @@
+<!DOCTYPE html  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" >
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:h="http://java.sun.com/jsf/html" 
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+
+<h:head>
+
+    <meta charset="utf-8"/>
+    <meta name="robots" content="all,follow"/>
+    <meta name="googlebot" content="index,follow,snippet,archive"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content="Obaju e-commerce template"/>
+    <meta name="author" content="Ondrej Svestka | ondrejsvestka.cz"/>
+    <meta name="keywords" content=""/>
+
+    <title>MWM E-commerce</title>
+
+    <meta name="keywords" content=""/>	
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100' rel='stylesheet' type='text/css'/>
+
+    <!-- Estilos -->    
+    <h:outputStylesheet  name="ecommerce/css/bootstrap.min.css" />
+    <h:outputStylesheet  name="ecommerce/css/font-awesome.css" />
+    <h:outputStylesheet  name="ecommerce/css/font-awesome.min.css" />
+    <h:outputStylesheet  name="ecommerce/css/animate.min.css" />
+    <h:outputStylesheet  name="ecommerce/css/owl.carousel.css" />
+    <h:outputStylesheet  name="ecommerce/css/owl.theme.css" />   
+
+    <!-- CHECAR ESTA PARTE -->
+    <h:outputStylesheet  name="ecommerce/css/style.blue.css" id="theme-stylesheet"/>  
+
+    <!-- your stylesheet with modifications -->
+    <h:outputStylesheet  name="ecommerce/css/custom.css" />
+    <h:outputScript  name="ecommerce/js/respond.min.js" />
+
+<link rel="shortcut icon" href="favicon.png" type="image/x-icon"/>		
+</h:head>
+
+<h:body>
+
+    <!-- *** TOPBAR ***
+ _________________________________________________________ -->
+    <div id="top">
+        <div class="container">
+            <div class="col-md-12" data-animate="fadeInDown">
+                <ul class="menu">
+                    <li><a href="#" data-toggle="modal" data-target="#login-modal">Iniciar sesión</a>
+                    </li>
+                    <li><a href="register.xhtml">Regístrate</a>
+                    </li>
+                    <li><a href="contact.xhtml">Contacto</a>
+                    </li>
+                    <li><a href="#">Visto recientemente</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="Login">Inicie sesión</h4>
+                    </div>
+                    <div class="modal-body">
+                        <h:form action="customer-orders.xhtml" method="post">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="email-modal" placeholder="email"/>
+                                <h:message for="username"></h:message>
+                            </div>
+                            <div class="form-group">                            
+                            <input type="password" class="form-control" id="password-modal" placeholder="Contraseña"/>
+                            </div>
+
+                            <p class="text-center">
+                                <button class="btn btn-primary"><i class="fa fa-sign-in"></i>Iniciar sesion</button>
+                            </p>
+
+                        </h:form>
+
+                        <p class="text-center text-muted">¿No te has registrado?</p>
+                        <p class="text-center text-muted"><a href="register.xhtml">¡<strong>Regístrate ahora</strong></a>! ¡Es fácil y listo en 1 minuto y le da acceso a descuentos especiales y mucho más!</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- *** TOP BAR END *** -->
+
+    <!-- *** NAVBAR ***
+    _____________________________ -->
+
+   <div class="navbar navbar-default yamm" role="navigation" id="navbar">
+        <div class="container">
+            <div class="navbar-header">
+
+                <a class="navbar-brand home" href="index.xhtml" data-animate-hover="bounce">
+                <h:graphicImage value="/resources/ecommerce/img/logo.ico" 	 alt="Obaju logo" class="hidden-xs img" id="img"/>
+                <h:graphicImage value="/resources/ecommerce/img/logo-small.png" alt="Obaju logo" class="visible-xs" id="imagen"/><span class="sr-only">MWM</span>
+                </a>
+                <div class="navbar-buttons">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
+                        <span class="sr-only">Toggle navigation</span>
+                        <i class="fa fa-align-justify"></i>
+                    </button>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#search">
+                        <span class="sr-only">Toggle search</span>
+                        <i class="fa fa-search"></i>
+                    </button>
+                    <a class="btn btn-default navbar-toggle" href="basket.xhtml">
+                        <i class="fa fa-shopping-cart"></i>  <span class="hidden-xs">3 productos</span>
+                    </a>
+                </div>
+            </div>
+            <!--/.navbar-header -->
+
+            <div class="navbar-collapse collapse" id="navigation">
+
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="active"><a href="index.xhtml">Inicio</a>
+                    </li>
+                    <li class="dropdown yamm-fw">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Videovigilancia<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <div class="yamm-content">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h5>Accesorios</h5>
+                                            <ul>
+                                                <li><a href="category.xhtml">Gabinetes para cámaras</a>
+                                                </li>
+                                                <li><a href="category.xhtml">Memorias SD</a>
+                                                </li>
+                                                <li><a href="category.xhtml">Cámaras</a>
+                                                </li>
+                                                <li><a href="category.xhtml">Cámaras falsas</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <h5>Audio</h5>
+                                            <ul>
+                                                <li><a href="category.xhtml">Conectores</a>
+                                                </li>
+                                                <li><a href="category.xhtml">Estaciones e interfaces</a>
+                                                </li>
+                                                <li><a href="category.xhtml">Micrófonos</a>
+                                                </li>
+                                                <li><a href="category.xhtml">Cables</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <h5>Cámaras HD-SDI/Grabación</h5>
+                                            <ul>
+                                                <li><a href="category.xhtml">Todos</a>
+                                                </li>                                            
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <h5>Cables</h5>
+                                            <ul>
+                                                <li><a href="category.xhtml">Audio</a>
+                                                </li>
+                                                <li><a href="category.xhtml">Fibra óptica</a>
+                                                </li>
+                                                <li><a href="category.xhtml">Telefónico</a>
+                                                </li>
+                                            </ul>
+                                            <h5>Herramientas</h5>
+                                            <ul>
+                                                <li><a href="category.xhtml">Accesorios de instalación</a>
+                                                </li>
+                                                <li><a href="category.xhtml">Probadores de video</a>
+                                                </li>
+                                                <li><a href="category.xhtml">Para cable RG59</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.yamm-content -->
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown yamm-fw">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Torres y accesorios<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <div class="yamm-content">
+                                    <div class="row">                                               
+                                        <div class="col-sm-3">                                              
+                                            <ul>
+                                                <li><a href="category.xhtml">Accesorios para torres Arriostradas</a>
+                                                </li>
+                                                <li><a href="category.xhtml">Anclas temporales</a>
+                                                </li>
+                                                <li><a href="category.xhtml">Mástiles</a>
+                                                </li>
+                                                <li><a href="category.xhtml">Montaje de techo y pared</a>
+                                                </li>
+                                                <li><a href="category.xhtml">Torres autosoportadas</a>
+                                                </li>
+                                                <li><a href="category.xhtml">Torres serie g</a>
+                                                </li>
+                                                <li><a href="category.xhtml">Herramientas de instalación</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="banner">
+                                                <a href="#">
+                                                <h:graphicImage value="/resources/ecommerce/img/banner.png" alt="" class="img-responsive img-thumbnail"/>                                                    
+                                                </a>
+                                            </div>                                            
+                                        </div>
+                                        <div class="col-sm-4">
+                                        <div class="banner">
+                                                <a href="#">
+                                                <h:graphicImage value="/resources/ecommerce/img/banner2.png" alt="" class="img-responsive img-thumbnail"/>                                                    
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.yamm-content -->
+                            </li>
+                        </ul>
+                    </li>
+
+                                        <li class="dropdown yamm-fw">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Redes<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <div class="yamm-content">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h5>Antenas</h5>
+                                            <ul>
+                                                <li><a href="index.xhtml">Accesorios</a>
+                                                </li>
+                                                <li><a href="category.xhtml">Direccionales</a>
+                                                </li>
+                                                <li><a href="category-right.xhtml">Jumpers</a>
+                                                </li>
+                                                <li><a href="category-full.xhtml">Omnidireccionales</a>
+                                                </li>
+                                                <li><a href="detail.xhtml">Sectoriales</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <h5>Racks y gabinetes</h5>
+                                            <ul>
+                                                <li><a href="register.xhtml">Accesorios para racks y gabinetes</a>
+                                                </li>
+                                                <li><a href="customer-orders.xhtml">Equipo móvil de resguardo</a>
+                                                </li>
+                                                <li><a href="customer-order.xhtml">Gabinetes para intemperie</a>
+                                                </li>
+                                                <li><a href="customer-wishlist.xhtml">Racks abiertos</a>
+                                                </li>
+                                                <li><a href="customer-account.xhtml">Racks cerrados</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <h5>Protección contra descargas</h5>
+                                            <ul>
+                                                <li><a href="basket.xhtml">Corriente directa</a>
+                                                </li>
+                                                <li><a href="checkout1.xhtml">Coaxial</a>
+                                                </li>
+                                                <li><a href="checkout2.xhtml">Corriente alterna</a>
+                                                </li>
+                                                <li><a href="checkout3.xhtml">Redes</a>
+                                                </li>                                                
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <h5>Networking</h5>
+                                            <ul>
+                                                <li><a href="blog.xhtml">Convertidores medios</a>
+                                                </li>
+                                                <li><a href="post.xhtml">Inyectores PoE</a>
+                                                </li>
+                                                <li><a href="faq.xhtml">PoE de largo alcance</a>
+                                                </li>
+                                                <li><a href="#">Switches</a>
+                                                </li>
+                                                <li><a href="#">Routers, firewalls, balanceadores</a>
+                                                </li>
+                                                <li><a href="404.xhtml">Transceptores de fibra</a>
+                                                </li>
+                                                <li><a href="contact.xhtml">Gpon</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.yamm-content -->
+                            </li>
+                        </ul>
+                    </li>                </ul>
+
+            </div>
+            <!--/.nav-collapse -->
+
+            <div class="navbar-buttons">
+
+                <div class="navbar-collapse collapse right" id="basket-overview">
+                    <a href="basket.xhtml" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm">3 items in cart</span></a>
+                </div>
+                <!--/.nav-collapse -->
+
+                <div class="navbar-collapse collapse right" id="search-not-mobile">
+                    <button type="button" class="btn navbar-btn btn-primary" data-toggle="collapse" data-target="#search">
+                        <span class="sr-only">Toggle search</span>
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="collapse clearfix" id="search">
+
+                <h:form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search"></input>
+                        <span class="input-group-btn">
+
+			<button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+
+		    </span>
+                    </div>
+                </h:form>
+
+            </div>
+            <!--/.nav-collapse -->
+
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /#navbar -->
+   
+    <!-- *** NAVBAR END *** -->
+
+    <div id="all">
+
+        <div id="content">
+            <div class="container">
+              <!-- *** LEFT COLUMN ***
+		     _________________________________________________________ -->
+
+                <div class="col-sm-9" id="blog-listing">
+
+                    <ul class="breadcrumb">
+
+                        <li><a href="#">Inicio</a>
+                        </li>
+                        <li>Blog</li>
+                    </ul>
+
+
+                    <div class="box">
+
+                        <h1>Nombre de la categoría del blog</h1>
+                        <p>Sed neque est, tempor et vestibulum sit amet, dapibus laoreet lacus. Aliquam non sapien efficitur dui pulvinar malesuada a nec lacus. Etiam faucibus luctus rhoncus. Ut vulputate volutpat nulla non interdum. Pellentesque quam nibh, imperdiet vitae nisl et, euismod mattis mi. Pellentesque varius, metus ac viverra suscipit, augue erat bibendum diam, eget placerat enim justo quis massa. Morbi congue lacus ac euismod pulvinar.</p>
+
+                    </div>
+
+                    <div class="post">
+                        <h2><a href="post.xhtml">Enlaces Punto a Multipunto</a></h2>
+                        <p class="author-category">Por <a href="#">John Slim</a> en<a href="">Mercado Wisp México </a>
+                        </p>
+                        <hr></hr>
+                        <p class="date-comments">
+                            <a href="post.xhtml"><i class="fa fa-calendar-o"></i> 06 de noviembre de 2017</a>
+                            <a href="post.xhtml"><i class="fa fa-comment-o"></i> # comentarios</a>
+                        </p>
+                        <div class="image">
+                            <a href="post.xhtml">
+                                <h:graphicImage value="/resources/ecommerce/img/blog2.jpg" alt="Example blog post alt" class="img-responsive"/>
+                            </a>
+                        </div>
+                        <p class="intro">Nam est lacus, accumsan a sollicitudin at, lacinia vitae urna. Phasellus non urna hendrerit, aliquet ex vel, pharetra diam. Curabitur convallis, risus non molestie facilisis, erat arcu tincidunt justo, a dictum sem ex vitae dui. Phasellus sit amet hendrerit leo. </p>
+                        <p class="read-more"><a href="post.xhtml" class="btn btn-primary">Continuar leyendo</a>
+                        </p>
+                    </div>
+
+
+                    <div class="post">
+                        <h2><a href="post.xhtml">Enlaces Punto a Punto</a></h2>
+                        <p class="author-category">Por <a href="#">John Slim</a> en <a href="">Mercado Wisp México</a>
+                        </p>
+                        <hr></hr>
+                        <p class="date-comments">
+                            <a href="post.xhtml"><i class="fa fa-calendar-o"></i> 06 de noviembre de 2017</a>
+                            <a href="post.xhtml"><i class="fa fa-comment-o"></i> # comentarios</a>
+                        </p>
+                        <div class="image">
+                            <a href="post.xhtml">
+                                <h:graphicImage value="/resources/ecommerce/img/epp.png" alt="" class="img-responsive"/>
+                            </a>
+                        </div>
+                        <p class="intro">Vivamus lobortis suscipit odio, porta aliquam justo ullamcorper in. Sed accumsan massa a condimentum pretium. Mauris vel ligula vel lorem convallis euismod. Nam pulvinar eros ac risus venenatis condimentum</p>
+                        <p class="read-more"><a href="post.xhtml" class="btn btn-primary">Continuar leyendo 	 </a>
+                        </p>
+                    </div>
+
+                    <ul class="pager">
+                        <li class="previous"><a href="#"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>Atrás</a>
+                        </li>
+                        <li class="next disabled"><a href="#">Siguiente<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                        </li>
+                    </ul>
+
+
+
+                </div>
+                <!-- /.col-md-9 -->
+
+                <!-- *** LEFT COLUMN END *** -->
+
+
+                <div class="col-md-3">
+                    <!-- *** BLOG MENU ***
+ _________________________________________________________ -->
+                    <div class="panel panel-default sidebar-menu">
+
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Blog</h3>
+                        </div>
+
+                        <div class="panel-body">
+
+                            <ul class="nav nav-pills nav-stacked">
+                                <li>
+                                    <a href="blog.xhtml">Sobre nosotros</a>
+                                </li>
+                                <li class="active">
+                                    <a href="blog.xhtml">Redes</a>
+                                </li>
+                                <li>
+                                    <a href="blog.xhtml">Noticiass</a>
+                                </li>
+                                <li>
+                                    <a href="blog.xhtml">Proyectos recientes</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <!-- /.col-md-3 -->
+
+                    <!-- *** BLOG MENU END *** -->
+
+                    <div class="banner">
+                        <a href="#">
+                            <h:graphicImage value="/resources/ecommerce/img/banner.jpg" alt="" class="img-responsive"/>                            
+                        </a>
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- /.container -->
+        </div>
+        <!-- /#content -->
+
+
+        <!-- *** FOOTER ***
+ _________________________________________________________ -->
+        <!-- *** FOOTER END *** -->
+ <div id="footer" data-animate="fadeInUp">
+            
+                <p class="parrafo">2017 © Mercado Wisp México Todos los derechos reservados</p>            
+                        <p class="social">
+                            <a href="https://www.facebook.com/groups/1429817027341749/" class="facebook external" data-animate-hover="shake"><i class="fa fa-facebook"></i></a>
+                            <a href="#" class="twitter external" data-animate-hover="shake"><i class="fa fa-twitter"></i></a>                            
+                            <a href="#" class="email external" data-animate-hover="shake"><i class="fa fa-whatsapp" ></i></a>
+                        </p>
+            </div>   
+
+
+
+
+
+        <!-- *** COPYRIGHT ***
+ _________________________________________________________ -->
+        <!-- *** COPYRIGHT END *** -->
+
+
+
+    </div>
+    <!-- /#all -->
+
+
+    
+
+    <!-- *** SCRIPTS TO INCLUDE ***
+ _________________________________________________________ -->
+<h:outputScript  name="ecommerce/js/jquery-1.11.0.min.js" />
+<h:outputScript  name="ecommerce/js/bootstrap.min.js" />
+<h:outputScript  name="ecommerce/js/jquery.cookie.js" />        
+<h:outputScript  name="ecommerce/js/waypoints.min.js" />    
+<h:outputScript  name="ecommerce/js/modernizr.js" />    
+<h:outputScript  name="ecommerce/js/bootstrap-hover-dropdown.js" />    
+<h:outputScript  name="ecommerce/js/owl.carousel.min.js" />    
+<h:outputScript  name="ecommerce/js/front.js" />  
+
+</h:body>
+
+</html>

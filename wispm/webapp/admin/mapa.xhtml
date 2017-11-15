@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+  <head>
+    <style>
+       #map{
+        justify-content:center;
+        height: 500px;
+        width: 70%;
+       }
+    </style>
+  </head>
+  <body>
+    <h3>Routers Conectados</h3>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,
+          center: {lat: 19.296384, lng: -99.136624}
+        });
+        if(navigator.geolocation){
+        	navigator.geolocation.getCurrentPosition(function(position){
+        		var pos={lat: 19.296384, lng: -99.136624};
+        		var pos1={lat: 19.299878, lng: -99.147782};
+        		var pos2={lat: 19.299038, lng: -99.137913};
+        		
+        		//var image='imagenes/mapita.ico';
+        		
+        		var marker = new google.maps.Marker({
+        	          position: pos,
+        	          map: map,
+        	          draggable: true,
+        			  animation: google.maps.Animation.DROP,
+        			  label: 'RB1',
+        			  title: 'MWM'
+        	        });
+        		var marker = new google.maps.Marker({
+      	          position: pos1,
+      	          map: map,
+      	          draggable: true,
+      			  animation: google.maps.Animation.DROP,
+      			  label: 'RB2',
+      			  title: 'Empresa1'
+      	        });
+        		var marker = new google.maps.Marker({
+        	          position: pos2,
+        	          map: map,
+        	          draggable: true,
+        			  animation: google.maps.Animation.DROP,
+        			  label: 'RB3',
+            		  title: 'Empresa2'
+        	        });
+        	},function() {
+        		handleLocationError(true, infoWindow, map.getCenter());
+      		});	
+        }
+        else{
+      	  handleLocationError(false, infoWindow, map.getCenter());
+        }
+      }
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  		infoWindow.setPosition(pos);
+  		infoWindow.setContent(browserHasGeolocation ?
+          	'Error: The Geolocation service failed.' :
+              'Error: Your browser doesn\'t support geolocation.');
+		}          	  	
+    </script>
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7-SP_lJJqFRa9E7LXY1B70AEcfZqsc_E
+    &amp;callback=initMap">
+    </script>
+  </body>
+</html>
