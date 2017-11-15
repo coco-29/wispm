@@ -6,6 +6,7 @@ import javax.persistence.Persistence;
 
 import mx.com.mwm.model.Direccion;
 import mx.com.mwm.model.Persona;
+import mx.com.mwm.model.Productos;
 import mx.com.mwm.model.Rol;
 import mx.com.mwm.model.TablaCuenta;
 
@@ -14,14 +15,23 @@ public class TestRol {
 	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("mwisp");
 
 	public static void main(String[] args) {
+		
+		EntityManager em=emf.createEntityManager();
+		Productos  p=new Productos("router", "Redes", 100, "roter de la marca ciscom", "1 año");
+		
+		em.getTransaction().begin();
+		
+		em.persist(p);
+		
+		em.getTransaction().commit();
 
-		EntityManager em = emf.createEntityManager();
+	/*	EntityManager em = emf.createEntityManager();
 		//se crea el rol , el id del rol es autoincrementable
 		Rol r=new Rol("Lectura","activo");
 		//se crea el usuario, el id es autoincrementable
-		Persona p=new Persona("Arturo", "Damian", "Vasquez", "9581234012");		
+		Persona p=new Persona("karen", "Mayita", "Martinez", "954012");		
 	    // se crea la tabla cuenta, el id es autoincrementable
-		TablaCuenta tc=new TablaCuenta("turi", "1234", "tu-23@gmail");
+		TablaCuenta tc=new TablaCuenta("karencita-21", "1234", "k23@gmail");
 		// al objeto cuenta le asigno el rol
 		tc.setRol(r);
 		// se crea la direccion del usuario
@@ -40,6 +50,7 @@ public class TestRol {
 		em.persist(p);
 		em.getTransaction().commit();
 		em.close();
+		*/
 	}
 
 	/*
