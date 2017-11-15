@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<!-- <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ -->
+	<meta name="robots" content="all,follow" />
+	<meta name="googlebot" content="index,follow,snippet,archive" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<meta name="description" content="MWM ADMINISTRACION" />
+	<meta name="author" content="     " />
+	<meta name="keywords" content="" />
+
+	<title>AdminLTE 2 | Argregar Router</title>
+	<!-- Tell the browser to be responsive to screen width -->
+	<!-- <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"> -->
+	<!-- Bootstrap 3.3.7 -->
+	<h:outputStylesheet name="admin/css/bootstrap.min.css" />
+	<!-- Font Awesome -->
+	<h:outputStylesheet name="admin/fonts/font-awesome.min.css" />
+	<!-- Ionicons -->
+	<h:outputStylesheet name="admin/Ionicons/css/ionicons.min.css" />
+	<!-- Theme style -->
+	<h:outputStylesheet name="admin/css/AdminLTE.min.css" />
+	<!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+	<h:outputStylesheet name="admin/css/skins/_all-skins.min.css" />
+<!-- 	<style>
+#formulario {
+	float:center;
+    /*border: 3px solid #73AD21;    
+    padding: 10px;
+	 /* margin: 100px 10px 10px 200px; */
+	/* margin: 0 auto; */
+	/* text-align: center; */
+	/* border-radius: 5px;
+	border: 3px solid #666666; */
+	/* width: 500px; */
+}
+</style> -->
+</h:head>
+<!-- <body class="hold-transition register-page skin-blue sidebar-mini"> -->
+<body class="hold-transition skin-blue sidebar-mini">
+	<div class="content">
+	<div class="col-sm-7">
+		<!-- <section id="formulario" class="content"> -->
+		<!-- <div class="row"> -->
+			<!-- Horizontal Form -->
+			<!-- <div class="box box-info"> -->
+			<div class="box box-info">
+				<div class="box-header with-border">
+					<h3 class="box-title">Agregue Su Router</h3>
+				</div>
+				<!-- /.box-header -->
+				<!-- form start -->
+				<h:form class="form-horizontal">
+					<div class="box-body">
+					
+						<div class="form-group has-feedback">
+							<label for="inputNombreRouter3" class="col-sm-5 control-label">Nombre para el Router</label>
+							 <div class="col-sm-5">
+								<h:inputText value="#{router.nombre}" class="form-control"/>
+								<span class="glyphicon glyphicon-hdd form-control-feedback"></span>
+							</div>
+						 </div>
+						 
+						<div class="form-group has-feedback">
+							<label for="inputDirIporDns3" class="col-sm-5 control-label">Direccion IP o DNS</label>
+							 <div class="col-sm-5">
+								<h:inputText value="#{router.ipDns}" class="form-control"/>
+								<span class="fa fa-compass form-control-feedback"></span>
+							</div>
+						 </div>
+						 
+						 <div class="form-group has-feedback">
+							<label for="inputNomUser3" class="col-sm-5 control-label">Nombre de Usuario</label>
+							 <div class="col-sm-5">
+								<h:inputText value="#{router.nombreUser}" class="form-control"/>
+								<span class="fa fa-user-circle form-control-feedback"></span>
+							</div>
+						 </div>
+						 
+						 <div class="form-group has-feedback">
+							<label for="inputContraseña3" class="col-sm-5 control-label">Contraseña</label>
+							 <div class="col-sm-5">
+								<h:inputText value="#{router.llave}" class="form-control"/>
+								<span class="fa fa-key form-control-feedback"></span>
+							</div>
+						 </div>
+						 
+						 <div class="form-group has-feedback">
+							<label for="inputUbicacion3" class="col-sm-5 control-label">Coordenadas de Ubicación</label>
+							 <div class="col-sm-5">
+								<h:inputText value="#{router.ubicacion}" class="form-control"/>
+								<span class="glyphicon glyphicon-map-marker form-control-feedback"></span>
+							</div>
+						 </div>
+						 
+					</div>
+					<!-- /.box-body -->
+					<div class="box-footer">
+						<!-- <button type="submit" class="btn btn-danger">Cancelar</button> -->
+						<h:commandButton value="Agregar Router" action="#{router.guardarRouter()}" styleClass="btn btn-info pull-right" />
+						<!-- <h:link outcome="login" value="Ver Routers" class="btn btn-primary" /> -->
+						<h:link outcome="ListaRouter" value="Ver Routers" class="btn btn-primary pull-left" />
+					</div>
+					<div class="callout callout-success">
+						<h5><h:outputText id="saveResult" rendered="#{not empty CreadoRouterID}" value="!! Router Guardado Exitosamente !!" styleClass="successText pull-center" /></h5>
+              		</div>
+					<!-- <h:outputText id="saveResult" rendered="#{not empty CreadoRouterID}" value="!! Router Guardado Exitosamente !!" styleClass="btn btn-succes pull-center" /> -->
+					<!-- /.box-footer -->
+				</h:form>
+			</div>
+		</div>
+		<!-- </section> -->
+		<!-- /.box -->
+		<!-- general form elements disabled -->
+	</div>
+	<!-- ./wrapper -->
+
+	<!-- jQuery 3 -->
+	<h:outputScript name="admin/jquery/jquery.min.js" />
+	<!-- Bootstrap 3.3.7 -->
+	<h:outputScript name="admin/js/bootstrap.min.js" />
+	<!-- FastClick -->
+	<h:outputScript name="admin/js/fastclick.js" />
+	<!-- AdminLTE App -->
+	<h:outputScript name="admin/js/adminlte.min.js" />
+	<!-- AdminLTE for demo purposes -->
+	<!-- <script src="../../dist/js/demo.js"></script> -->
+	<!-- <script>
+  $(function () {
+    $('input').iCheck({
+      checkboxClass: 'icheckbox_square-blue',
+      radioClass: 'iradio_square-blue',
+      increaseArea: '20%' // optional
+    });
+  });
+  </script> -->
+</body>
+</html>

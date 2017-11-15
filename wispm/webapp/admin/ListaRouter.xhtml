@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+      
+<h:head>
+	
+	<h:outputStylesheet name="admin/css/bootstrap.min.css" />
+	<h:outputStylesheet name="admin/fonts/font-awesome.min.css" />
+	<h:outputStylesheet name="admin/Ionicons/css/ionicons.min.css" />
+	<title>MWM | Lista de Routers</title>
+	<style type="text/css">
+.tg {
+	border-collapse: collapse;
+	border-spacing: 0;
+	border-color: #ccc;
+}
+
+.tg td {
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	padding: 10px 5px;
+	border-style: solid;
+	border-width: 1px;
+	overflow: hidden;
+	word-break: normal;
+	border-color: #ccc;
+	color: #333;
+	background-color: #fff;
+}
+
+.tg th {
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	padding: 10px 5px;
+	border-style: solid;
+	border-width: 1px;
+	overflow: hidden;
+	word-break: normal;
+	border-color: #ccc;
+	color: #333;
+	background-color: #f0f0f0;
+}
+
+.tg .tg-4eph {
+	background-color: #f9f9f9
+}
+</style>
+</h:head>
+<h:body class="hold-transition register-page">
+	<h2>Lista de Routers</h2>
+	<br />
+	<c:if test="${!empty router.getRouterDetails()}">
+		<table class="tg">
+			<tr>
+				<th width="80">N°</th>
+				<th width="120">Nombre</th>
+				<th width="120">Ip o DNS</th>
+				<th width="120">Nombre de Usuario</th>
+				<th width="150">Accion</th>
+			</tr>
+			<ui:repeat value="${router.getRouterDetails()}" var="routers" varStatus="status">
+				<tr>
+					<td>${status.index+1}</td>
+					<td>${routers.nombre}</td>
+					<td>${routers.ipDns}</td>
+					<td>${routers.nombreUser}</td>
+					<td>
+						<h:link outcome="index" value="Ingresar" class="btn btn-primary pull-left" />
+						<h:link outcome="login" class="fa fa-pencil-square fa-2x" />
+						<h:link outcome="login" class="fa fa-trash fa-2x" />
+					</td>
+					<!-- <td><i outcome="login" class="fa fa-pencil-square" aria-hidden="true"></i></td> -->
+					<!-- <td><a href="#{person.id}" >Edit</a></td> -->
+					<!-- <h:form>
+						<td colspan="2"><h:commandButton
+								action="#{personService.removePerson(person.id)}"
+								value="Eliminar" /></td>
+					</h:form> -->
+				</tr>
+			</ui:repeat>
+		</table>
+	</c:if>
+	
+	<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+        <!-- <p:outputLabel for="console" value="Console:" />
+        <p:selectOneRadio id="console" value="#{radioView.console}">
+            <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+            <f:selectItem itemLabel="PS4" itemValue="PS4" />
+            <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+        </p:selectOneRadio> -->
+    </h:panelGrid>
+
+	<h:outputScript name="admin/jquery/jquery.min.js" />
+	<h:outputScript name="admin/js/bootstrap.min.js" />
+</h:body>
+</html>

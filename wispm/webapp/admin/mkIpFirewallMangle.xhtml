@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+      
+<h:head>
+	<meta name="robots" content="all,follow"/>
+  	<meta name="googlebot" content="index,follow,snippet,archive"/>
+  	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+  	<meta name="description" content="MWM ADMINISTRACION"/>
+  	<meta name="author" content="     "/>
+  	<meta name="keywords" content=""/>
+		
+	<h:outputStylesheet name="admin/css/dataTables.bootstrap.min.css" />
+	<h:outputStylesheet name="admin/css/bootstrap.min.css" />
+	<h:outputStylesheet name="admin/fonts/font-awesome.min.css"/>
+	<h:outputStylesheet name="admin/css/skins/_all-skins.min.css"/>
+	<title>MK conexion</title>
+	<style type="text/css">
+.tableUpdated {
+	width: 90% !important;
+	margin: 17px 58px 0 !important;
+}
+.tg {
+	border-collapse: collapse;
+	border-spacing: 0;
+	border-color: #ccc;
+}
+
+.tg td {
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	padding: 10px 5px;
+	border-style: solid;
+	border-width: 1px;
+	overflow: hidden;
+	word-break: normal;
+	border-color: #ccc;
+	color: #333;
+	background-color: #fff;
+}
+
+.tg th {
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	padding: 10px 5px;
+	border-style: solid;
+	border-width: 1px;
+	overflow: hidden;
+	word-break: normal;
+	border-color: #ccc;
+	color: #333;
+	background-color: #f0f0f0;
+}
+
+.tg .tg-4eph {
+	background-color: #f9f9f9
+}
+</style>
+</h:head>
+<h:body>
+	<h3>Lista IP Mangle </h3>
+
+		<table class="tg">
+			<tr>
+				<th width="20">Reg</th>
+				<th width="25">Id</th>
+				<th width="80">Chain</th>
+				<th width="120">Log</th>
+				<th width="60">Packets</th>
+				<th width="60">Dst-Address-list</th>
+				<th width="60">Src-Addres-</th>
+			</tr>
+			<ui:repeat value="${ipFirewallMangle.listMkIpFirewallMangle()}" var="MkMangle" varStatus="status">
+				<tr>
+					<td>${status.index + 1}</td>
+					<td>${MkMangle.id}</td>
+					<td>${MkMangle.chain}</td>
+					<td>${MkMangle.log}</td>
+					<td>${MkMangle.packets}</td>
+					<td>${MkMangle.dstAddressList}</td>
+					<td>${MkMangle.srcAddress}</td>
+					<!-- <td><a href="#{person.id}" >Edit</a></td> -->
+					<!-- <h:form>
+						<td colspan="2"><h:commandButton
+							action="#{personService.removePerson(person.id)}" value="Eliminar"/></td>
+					</h:form> -->
+				</tr>
+			</ui:repeat>
+		</table>
+	<!-- </c:if> -->
+	
+	<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+        <!-- <p:outputLabel for="console" value="Console:" />
+        <p:selectOneRadio id="console" value="#{radioView.console}">
+            <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+            <f:selectItem itemLabel="PS4" itemValue="PS4" />
+            <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+        </p:selectOneRadio> -->
+    </h:panelGrid>
+
+</h:body>
+</html>
