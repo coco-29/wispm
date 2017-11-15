@@ -2,7 +2,6 @@ package mx.com.mwm.model;
 
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -38,6 +37,15 @@ public class Persona implements Serializable {
 
 	@Column(name = "Telefono", nullable = false)
 	private String telefono;
+	
+	
+	@OneToOne
+	@JoinColumn(name="T_Direccion_Id_Direccion")
+	private Direccion direccion;
+	
+	@OneToOne
+	@JoinColumn(name="T_Cuenta_Id_Cuenta")
+	private TablaCuenta cuenta;
 
 
 
@@ -92,6 +100,29 @@ public class Persona implements Serializable {
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
+	
+	public Direccion getDireccion() {
+		return direccion;
+	}
+	public void setDireccion(Direccion direccion) {
+		this.direccion = direccion;
+	}
+	
+	public TablaCuenta getCuenta() {
+		return cuenta;
+	}
+	
+	public void setCuenta(TablaCuenta cuenta) {
+		this.cuenta = cuenta;
+	}
+
+	@Override
+	public String toString() {
+		return "Persona [id_Persona=" + id_Persona + ", nombre=" + nombre + ", ap_Paterno=" + ap_Paterno
+				+ ", ap_Materno=" + ap_Materno + ", telefono=" + telefono + ", direccion=" + direccion + ", cuenta="
+				+ cuenta + "]";
+	}
+	
 
 	
 

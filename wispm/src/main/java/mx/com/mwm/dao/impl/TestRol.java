@@ -4,7 +4,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-
+import mx.com.mwm.model.Direccion;
+import mx.com.mwm.model.Persona;
 import mx.com.mwm.model.Rol;
 import mx.com.mwm.model.TablaCuenta;
 
@@ -15,13 +16,28 @@ public class TestRol {
 	public static void main(String[] args) {
 
 		EntityManager em = emf.createEntityManager();
-	//	Direccion d=new Direccion( 21321, "San Juan", "23", "323", "D.F", "Lazaron", "Tlalpan");
-	Rol r=new Rol("pruebas","activo");
-	TablaCuenta tc=new TablaCuenta("ff", "08jg", "dd@gmail");
-	tc.setRol(r);
+		//se crea el rol , el id del rol es autoincrementable
+		Rol r=new Rol("Lectura","activo");
+		//se crea el usuario, el id es autoincrementable
+		Persona p=new Persona("Arturo", "Damian", "Vasquez", "9581234012");		
+	    // se crea la tabla cuenta, el id es autoincrementable
+		TablaCuenta tc=new TablaCuenta("turi", "1234", "tu-23@gmail");
+		// al objeto cuenta le asigno el rol
+		tc.setRol(r);
+		// se crea la direccion del usuario
+		Direccion d=new Direccion(70900,"club leon", "23","s/n","Mexico","Lazaro","Tlalpan");
+		// se le asigna a la persona una cuenta
+		p.setCuenta(tc);
+		// se le asigna a la persona una direcion
+		p.setDireccion(d);
 		em.getTransaction().begin();
+		//se persiste el rol para que despues se pueda persister la cuenta
 		em.persist(r);
+		//se persiste la tabla cuenta
 		em.persist(tc);
+		//se persiste la tabla direccion para que pueda persistirse despues la persna
+		em.persist(d);
+		em.persist(p);
 		em.getTransaction().commit();
 		em.close();
 	}
